@@ -1,51 +1,56 @@
-# 🚀 Getting started with Strapi
+# 🚀 Getting started
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+First, create an `.env` file with the following:
 
-### `develop`
+```dotenv
+# Client Environments
+NODE_ENV=development
+#NODE_ENV=production
+#NODE_ENV=directedsuccess
+#NODE_ENV=awardedsolutions
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+HOST_PORT_DEVELOPMENT=5000
+HOST_PORT_DIRECTEDSUCCESS=5100
+HOST_PORT_AWARDEDSOLUTIONS=5200
+
+# Database 
+DATABASE_CLIENT_DEV=sqlite
+DATABASE_FILENAME_DEV=.tmp/data.db
+DATABASE_FILENAME_DIRECTEDSUCCESS=.tmp/data-directedsuccess.db
+JWT_SECRET=7H+XTgupl7L1ZNVI9TbznQ==
+
+# Application
+HOST_DEV=0.0.0.0
+APP_KEYS=lwuifWMbLfhWhG63yD3xGg==,ezLrdJfNt8OFjSWdMQjfCw==,hSSc6vR0XpMtCxHdOeR26w==,jUg13pKgBI96TIN4Y9502w==
+API_TOKEN_SALT=fw7EOYX+6AZHhJ038m/5YA==
+ADMIN_JWT_SECRET=PXqoWzIrhLT8sX+8DgFRyw==
+TRANSFER_TOKEN_SALT=piT+tDgiXGIlZnqTrMAr9g==
 
 ```
-npm run develop
+
+Next, install packages:
+
+```bash
+npm install
 ```
 
-### `start`
+Finally, run the development server:
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
+```bash
+npm run dev
 ```
 
-### `build`
+Open [http://localhost:5001/admin](http://localhost:5001/admin) with your browser to start.
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+# Scripts
+
+## Application
+
+```bash
+npm run start:pm2    # start production using pm2 - runs all clients
+```
+
+```bash
+pm2 monit           # monitor pm2 processes
 
 ```
-npm run build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
