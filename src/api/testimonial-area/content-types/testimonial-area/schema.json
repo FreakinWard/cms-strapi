@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "testimonial_areas",
+  "info": {
+    "singularName": "testimonial-area",
+    "pluralName": "testimonial-areas",
+    "displayName": "TestimonialArea"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial"
+    }
+  }
+}
