@@ -7,7 +7,7 @@ module.exports = {
       args: 'start',
       env: {
         NODE_ENV: 'development',
-        HOST_PORT_SITE1: 5000,
+        HOST_PORT_SITE1: 5100,
         DOMAIN_URL: 'dev.awardedsolutions.com'
       }
     },
@@ -18,7 +18,7 @@ module.exports = {
       args: 'start',
       env: {
         NODE_ENV: 'directedsuccess',
-        HOST_PORT_SITE1: 5100,
+        HOST_PORT_SITE1: 5200,
         DOMAIN_URL: 'cms.directedsuccess.com'
       }
     },
@@ -29,7 +29,7 @@ module.exports = {
       args: 'start',
       env: {
         NODE_ENV: 'awardedsolutions',
-        HOST_PORT_SITE1: 5200,
+        HOST_PORT_SITE1: 5300,
         DOMAIN_URL: 'cms.awardedsolutions.com'
       }
     },
