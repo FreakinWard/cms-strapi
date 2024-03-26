@@ -2,6 +2,7 @@
 
 First, create an `.env` file with the following:
 
+
 ```dotenv
 # Client Environments
 NODE_ENV=development
@@ -9,22 +10,28 @@ NODE_ENV=development
 #NODE_ENV=directedsuccess
 #NODE_ENV=awardedsolutions
 
-HOST_PORT_DEVELOPMENT=5000
-HOST_PORT_DIRECTEDSUCCESS=5100
-HOST_PORT_AWARDEDSOLUTIONS=5200
-
-# Database 
-DATABASE_CLIENT_DEV=sqlite
-DATABASE_FILENAME_DEV=.tmp/data.db
-DATABASE_FILENAME_DIRECTEDSUCCESS=.tmp/data-directedsuccess.db
-JWT_SECRET=7H+XTgupl7L1ZNVI9TbznQ==
-
-# Application
-HOST_DEV=0.0.0.0
+# Strapi Application
 APP_KEYS=lwuifWMbLfhWhG63yD3xGg==,ezLrdJfNt8OFjSWdMQjfCw==,hSSc6vR0XpMtCxHdOeR26w==,jUg13pKgBI96TIN4Y9502w==
 API_TOKEN_SALT=fw7EOYX+6AZHhJ038m/5YA==
 ADMIN_JWT_SECRET=PXqoWzIrhLT8sX+8DgFRyw==
 TRANSFER_TOKEN_SALT=piT+tDgiXGIlZnqTrMAr9g==
+
+# Strapi Storage
+STORAGE_ACCOUNT=cmsstrapist
+STORAGE_ACCOUNT_KEY=stored-in-key-vault
+
+# Database for dev
+DATABASE_CLIENT_DEV=sqlite
+DATABASE_FILENAME_DEV=.tmp/data.db
+DATABASE_FILENAME_DIRECTEDSUCCESS=.tmp/data-directedsuccess.db
+
+# Database for production
+DATABASE_HOST=cms-strapi-mysql.mysql.database.azure.com
+DATABASE_USERNAME=aaronward
+DATABASE_PASSWORD=stored-in-key-vault
+
+# Database names for clients
+DATABASE_NAME_DIRECTEDSUCCESS=directed-success
 
 ```
 

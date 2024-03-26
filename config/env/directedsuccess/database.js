@@ -2,12 +2,12 @@ module.exports = ({ env }) => ({
   connection: {
     client: 'mysql',
     connection: {
-      host: env('DATABASE_HOST_DIRECTEDSUCCESS', 'empty-host'),
+      host: env('DATABASE_HOST', 'empty-host'),
       port: env.int('DATABASE_PORT', 3306),
       database: env('DATABASE_NAME_DIRECTEDSUCCESS', 'empty-database'),
-      user: env('DATABASE_USERNAME_DIRECTEDSUCCESS', 'empty-username'),
-      password: env('DATABASE_PASSWORD_DIRECTEDSUCCESS', 'empty-password'),
-      ssl: env.bool('DATABASE_SSL_DIRECTEDSUCCESS', true),
+      user: env('DATABASE_USERNAME', 'empty-username'),
+      password: env('DATABASE_PASSWORD', 'empty-password'),
+      ssl: env.bool('DATABASE_SSL', true),
     },
   },
 });

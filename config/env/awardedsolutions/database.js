@@ -2,12 +2,12 @@
 //   connection: {
 //     client: 'mysql',
 //     connection: {
-//       host: env('DATABASE_HOST_DIRECTED-SUCCESS', 'localhost'),
+//       host: env('DATABASE_HOST', 'empty-host'),
 //       port: env.int('DATABASE_PORT', 3306),
-//       database: env('DATABASE_NAME_DIRECTED-SUCCESS', 'directed-success'),
-//       user: env('DATABASE_USERNAME_DIRECTED-SUCCESS', 'root'),
-//       password: env('DATABASE_PASSWORD_DIRECTED-SUCCESS', 'root'),
-//       ssl: env.bool('DATABASE_SSL_DIRECTED-SUCCESS', false),
+//       database: env('DATABASE_NAME_AWARDEDSOLUTIONS', 'empty-database'),
+//       user: env('DATABASE_USERNAME', 'empty-username'),
+//       password: env('DATABASE_PASSWORD', 'empty-password'),
+//       ssl: env.bool('DATABASE_SSL', true),
 //     },
 //   },
 // });
