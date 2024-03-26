@@ -1,3 +1,5 @@
+const azureStoragePolicy = require('../../middleware/azureStoragePolicy');
+
 module.exports = [
   'strapi::logger',
   'strapi::errors',
@@ -9,4 +11,5 @@ module.exports = [
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
+  azureStoragePolicy,
 ];
