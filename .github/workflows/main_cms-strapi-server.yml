@@ -67,3 +67,4 @@ jobs:
           app-name: 'cms-strapi-server'
           slot-name: 'Production'
           package: .
+          startup-command: "npm run start:prod"
