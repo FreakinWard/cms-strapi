@@ -37,6 +37,9 @@ jobs:
       - name: Directory list
         run: ls -l -a
 
+      - name: File list
+        run: find . -type f | grep -Ev 'node_modules|.github|.git|.idea|build|types/generated' | grep -v "\.gz$"
+
       - name: Zip artifact for deployment
         run: find . -type f | grep -Ev 'node_modules|.github|.git|.idea|build|types/generated' | grep -v "\.gz$" | zip release.zip -@
 
