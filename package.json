@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "strapi develop",
     "start": "strapi start",
-    "start:prod": "node node_modules/@strapi/strapi/bin/strapi.js start",
+    "start:prod": "NODE_ENV=directedsuccess node node_modules/@strapi/strapi/bin/strapi.js start",
     "start:pm2": "pm2 start ecosystem.config.js",
     "start:pm2:prod": "pm2 start ecosystem.config.js -i max --no-daemon",
     "build": "strapi build",
