@@ -9,7 +9,7 @@ const HomePage = () => {
   const [health, setHealth] = useState();
 
   useEffect(() => {
-    fetch('/health')
+    fetch('/api/health')
     .then((res) => res.json())
     .then(setHealth)
   }, []);
@@ -29,7 +29,7 @@ const HomePage = () => {
         <br />
         <Box padding={4} hasRadius background="neutral0" shadow="tableShadow">
           <ul>
-            {health.healthMetrics.map((metric, idx) => {
+            {health.metrics.map((metric, idx) => {
               return (
                     <li key={idx}>
                       <Typography>{`${metric.name}: ${metric.value}`}</Typography>
