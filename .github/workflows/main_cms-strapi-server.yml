@@ -28,9 +28,18 @@ jobs:
           npm run test --if-present
 
       - name: Prepare Artifact
+        env:
+          CI_BUILD_NUMBER: '${{ github.run_id }}.${{ github.run_number }}x${{ github.run_attempt }}'
+          CI_BUILD_JOB_URL: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
         run: |
           mv .github/.artifactignore ./
           mv .github/.deployment ./
+
+          npm pkg set buildNumber=$CI_BUILD_NUMBER
+          npm pkg set buildJobUrl=$CI_BUILD_JOB_URL
+          
+          echo $CI_BUILD_JOB_URL
+          echo Package.json - set buildNumber
 
       - name: Environment Variables
         run: env | sort
@@ -40,13 +49,6 @@ jobs:
 
       - name: File list
         run: find . -type f | grep -Ev 'node_modules|.github|.git|.idea|build|types/generated' | grep -v "\.gz$"
-
-      - name: Set BuildNumber
-        run: |
-          CI_BUILD_NUMBER=$GITHUB_RUN_ID
-          
-          echo https://github.com/FreakinWard/cms-strapi/actions/runs/$GITHUB_RUN_ID
-          npm pkg set buildNumber=$CI_BUILD_NUMBER
 
       - name: Zip artifact for deployment
         run: find . -type f | grep -Ev 'node_modules|.github|.git|.idea|build|types/generated' | grep -v "\.gz$" | zip release.zip -@
