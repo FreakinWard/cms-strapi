@@ -22,6 +22,7 @@ jobs:
 
       - name: npm install, build, and test
         run: |
+          NODE_ENV=production
           npm install
           npm run build --if-present
           npm run test --if-present
@@ -39,6 +40,13 @@ jobs:
 
       - name: File list
         run: find . -type f | grep -Ev 'node_modules|.github|.git|.idea|build|types/generated' | grep -v "\.gz$"
+
+      - name: Set BuildNumber
+        run: |
+          CI_BUILD_NUMBER=$GITHUB_RUN_ID
+          
+          echo https://github.com/FreakinWard/cms-strapi/actions/runs/$GITHUB_RUN_ID
+          npm pkg set buildNumber=$CI_BUILD_NUMBER
 
       - name: Zip artifact for deployment
         run: find . -type f | grep -Ev 'node_modules|.github|.git|.idea|build|types/generated' | grep -v "\.gz$" | zip release.zip -@
