@@ -9,13 +9,13 @@ const packageJson = require('../../../../package.json');
 const metrics = [
   {name: 'App Name', value: packageJson.name},
   {name: 'Version', value: packageJson.version},
-  {name: 'Build Number', value: packageJson.buildNumber ?? 'not-set'},
+  {name: 'Build Number', value: packageJson.buildNumber ?? 'not-set', url: packageJson.buildJobUrl ?? 'not-set'},
 ]
 const health = { "status": "ok", "message": "All engines running 🚀", metrics }
 
 
 module.exports = {
-  getHealthStatus: async (ctx, next) => {
+  getHealthStatus: async ctx => {
 
     try {
       ctx.body = health;
