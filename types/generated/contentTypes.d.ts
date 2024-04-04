@@ -812,6 +812,8 @@ export interface ApiAboutAbout extends Schema.SingleType {
       'api::about-why.about-why'
     >;
     Image: Attribute.Media & Attribute.Required;
+    Title: Attribute.String & Attribute.Required;
+    SecondaryTitle: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
