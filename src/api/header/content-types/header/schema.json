@@ -4,7 +4,8 @@
   "info": {
     "singularName": "header",
     "pluralName": "headers",
-    "displayName": "Header"
+    "displayName": "Header",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,14 @@
     },
     "Paragraph": {
       "type": "text"
+    },
+    "BackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

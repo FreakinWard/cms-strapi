@@ -938,6 +938,7 @@ export interface ApiHeaderHeader extends Schema.SingleType {
     singularName: 'header';
     pluralName: 'headers';
     displayName: 'Header';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -945,6 +946,7 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   attributes: {
     Title: Attribute.String;
     Paragraph: Attribute.Text;
+    BackgroundImage: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1103,6 +1105,51 @@ export interface ApiServiceAreaServiceArea extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::service-area.service-area',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
+  collectionName: 'social_medias';
+  info: {
+    singularName: 'social-media';
+    pluralName: 'social-medias';
+    displayName: 'SocialMedia';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Platform: Attribute.Enumeration<
+      [
+        'Facebook',
+        'Twitter',
+        'Youtube',
+        'Discord',
+        'LinkedIn',
+        'Instagram',
+        'Google',
+        'Slack'
+      ]
+    > &
+      Attribute.Required;
+    Image: Attribute.Media & Attribute.Required;
+    PlatformUrl: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::social-media.social-media',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::social-media.social-media',
       'oneToOne',
       'admin::user'
     > &
@@ -1274,6 +1321,7 @@ declare module '@strapi/types' {
       'api::portfolio-area.portfolio-area': ApiPortfolioAreaPortfolioArea;
       'api::service.service': ApiServiceService;
       'api::service-area.service-area': ApiServiceAreaServiceArea;
+      'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'api::team-area.team-area': ApiTeamAreaTeamArea;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
