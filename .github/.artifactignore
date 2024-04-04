@@ -1,0 +1,17 @@
+# ignore all files
+**/*
+
+# include only production files
+!/.deployment
+!/.npmrc
+!/package-lock.json
+!/package.json
+!/ecosystem.config.js
+!/favicon.png
+!/jsconfig.json
+!/build
+!/config
+!/database
+!/public
+!/src
+!/types

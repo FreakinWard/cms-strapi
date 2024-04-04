@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "portfolio_areas",
+  "info": {
+    "singularName": "portfolio-area",
+    "pluralName": "portfolio-areas",
+    "displayName": "PortfolioArea"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "portfolios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::portfolio.portfolio"
+    },
+    "Paragraph": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

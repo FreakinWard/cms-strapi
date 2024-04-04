@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "abouts",
+  "info": {
+    "singularName": "about",
+    "pluralName": "abouts",
+    "displayName": "About",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Paragraph": {
+      "type": "text"
+    },
+    "whys": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::about-why.about-why"
+    },
+    "whys2": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::about-why.about-why"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
