@@ -869,6 +869,7 @@ export interface ApiContactContact extends Schema.SingleType {
     singularName: 'contact';
     pluralName: 'contacts';
     displayName: 'Contact';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -879,9 +880,6 @@ export interface ApiContactContact extends Schema.SingleType {
     Address: Attribute.String & Attribute.Required;
     Phone: Attribute.String & Attribute.Required;
     Email: Attribute.String & Attribute.Required;
-    Facebook: Attribute.String & Attribute.Required;
-    Twitter: Attribute.String & Attribute.Required;
-    Youtube: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1112,44 +1110,45 @@ export interface ApiServiceAreaServiceArea extends Schema.SingleType {
   };
 }
 
-export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
-  collectionName: 'social_medias';
+export interface ApiSocialMediaPlatformSocialMediaPlatform
+  extends Schema.CollectionType {
+  collectionName: 'social_media_platforms';
   info: {
-    singularName: 'social-media';
-    pluralName: 'social-medias';
-    displayName: 'SocialMedia';
+    singularName: 'social-media-platform';
+    pluralName: 'social-media-platforms';
+    displayName: 'SocialMediaPlatforms';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Platform: Attribute.Enumeration<
+    Type: Attribute.Enumeration<
       [
-        'Facebook',
-        'Twitter',
-        'Youtube',
         'Discord',
-        'LinkedIn',
-        'Instagram',
+        'Facebook',
         'Google',
-        'Slack'
+        'Instagram',
+        'LinkedIn',
+        'Slack',
+        'Twitter',
+        'YouTube'
       ]
     > &
       Attribute.Required;
+    Url: Attribute.String & Attribute.Required;
     Image: Attribute.Media & Attribute.Required;
-    PlatformUrl: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::social-media.social-media',
+      'api::social-media-platform.social-media-platform',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::social-media.social-media',
+      'api::social-media-platform.social-media-platform',
       'oneToOne',
       'admin::user'
     > &
@@ -1321,7 +1320,7 @@ declare module '@strapi/types' {
       'api::portfolio-area.portfolio-area': ApiPortfolioAreaPortfolioArea;
       'api::service.service': ApiServiceService;
       'api::service-area.service-area': ApiServiceAreaServiceArea;
-      'api::social-media.social-media': ApiSocialMediaSocialMedia;
+      'api::social-media-platform.social-media-platform': ApiSocialMediaPlatformSocialMediaPlatform;
       'api::team-area.team-area': ApiTeamAreaTeamArea;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
