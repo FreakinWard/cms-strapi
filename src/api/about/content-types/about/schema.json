@@ -15,16 +15,6 @@
     "Paragraph": {
       "type": "text"
     },
-    "whys": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::about-why.about-why"
-    },
-    "whys2": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::about-why.about-why"
-    },
     "Image": {
       "type": "media",
       "multiple": false,

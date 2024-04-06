@@ -801,16 +801,6 @@ export interface ApiAboutAbout extends Schema.SingleType {
   };
   attributes: {
     Paragraph: Attribute.Text;
-    whys: Attribute.Relation<
-      'api::about.about',
-      'oneToMany',
-      'api::about-why.about-why'
-    >;
-    whys2: Attribute.Relation<
-      'api::about.about',
-      'oneToMany',
-      'api::about-why.about-why'
-    >;
     Image: Attribute.Media & Attribute.Required;
     Title: Attribute.String & Attribute.Required;
     SecondaryTitle: Attribute.String;
@@ -826,37 +816,6 @@ export interface ApiAboutAbout extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::about.about',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiAboutWhyAboutWhy extends Schema.CollectionType {
-  collectionName: 'about_whys';
-  info: {
-    singularName: 'about-why';
-    pluralName: 'about-whys';
-    displayName: 'About Why';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Why: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::about-why.about-why',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::about-why.about-why',
       'oneToOne',
       'admin::user'
     > &
@@ -1314,7 +1273,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about.about': ApiAboutAbout;
-      'api::about-why.about-why': ApiAboutWhyAboutWhy;
       'api::contact.contact': ApiContactContact;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::header.header': ApiHeaderHeader;
