@@ -814,6 +814,7 @@ export interface ApiAboutAbout extends Schema.SingleType {
     Image: Attribute.Media & Attribute.Required;
     Title: Attribute.String & Attribute.Required;
     SecondaryTitle: Attribute.String;
+    SecondaryParagraph: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -945,6 +946,7 @@ export interface ApiHeaderHeader extends Schema.SingleType {
     Title: Attribute.String;
     Paragraph: Attribute.Text;
     BackgroundImage: Attribute.Media;
+    SecondaryTitle: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

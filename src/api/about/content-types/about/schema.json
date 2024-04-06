@@ -39,6 +39,9 @@
     },
     "SecondaryTitle": {
       "type": "string"
+    },
+    "SecondaryParagraph": {
+      "type": "text"
     }
   }
 }
