@@ -1004,19 +1004,9 @@ export interface ApiServiceService extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Icon: Attribute.Enumeration<
-      [
-        'WordPress',
-        'CartArrowDown',
-        'CloudDownload',
-        'Language',
-        'Plane',
-        'PieChart'
-      ]
-    > &
-      Attribute.Required;
     Name: Attribute.String & Attribute.Required;
     Text: Attribute.Text & Attribute.Required;
+    Image: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
