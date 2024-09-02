@@ -837,7 +837,7 @@ export interface ApiContactContact extends Schema.SingleType {
   attributes: {
     Title: Attribute.String & Attribute.Required;
     Paragraph: Attribute.Text & Attribute.Required;
-    Address: Attribute.String & Attribute.Required;
+    Address: Attribute.String;
     Phone: Attribute.String & Attribute.Required;
     Email: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;

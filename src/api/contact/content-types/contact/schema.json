@@ -22,7 +22,7 @@
     },
     "Address": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "Phone": {
       "type": "string",
