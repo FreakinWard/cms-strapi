@@ -801,17 +801,10 @@ export interface ApiAboutAbout extends Schema.SingleType {
   };
   attributes: {
     Paragraph: Attribute.Text;
-    whys: Attribute.Relation<
-      'api::about.about',
-      'oneToMany',
-      'api::about-why.about-why'
-    >;
-    whys2: Attribute.Relation<
-      'api::about.about',
-      'oneToMany',
-      'api::about-why.about-why'
-    >;
     Image: Attribute.Media & Attribute.Required;
+    Title: Attribute.String & Attribute.Required;
+    SecondaryTitle: Attribute.String;
+    SecondaryParagraph: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -823,37 +816,6 @@ export interface ApiAboutAbout extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::about.about',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiAboutWhyAboutWhy extends Schema.CollectionType {
-  collectionName: 'about_whys';
-  info: {
-    singularName: 'about-why';
-    pluralName: 'about-whys';
-    displayName: 'About Why';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Why: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::about-why.about-why',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::about-why.about-why',
       'oneToOne',
       'admin::user'
     > &
@@ -867,6 +829,7 @@ export interface ApiContactContact extends Schema.SingleType {
     singularName: 'contact';
     pluralName: 'contacts';
     displayName: 'Contact';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -874,12 +837,9 @@ export interface ApiContactContact extends Schema.SingleType {
   attributes: {
     Title: Attribute.String & Attribute.Required;
     Paragraph: Attribute.Text & Attribute.Required;
-    Address: Attribute.String & Attribute.Required;
+    Address: Attribute.String;
     Phone: Attribute.String & Attribute.Required;
     Email: Attribute.String & Attribute.Required;
-    Facebook: Attribute.String & Attribute.Required;
-    Twitter: Attribute.String & Attribute.Required;
-    Youtube: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -936,6 +896,7 @@ export interface ApiHeaderHeader extends Schema.SingleType {
     singularName: 'header';
     pluralName: 'headers';
     displayName: 'Header';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -943,6 +904,8 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   attributes: {
     Title: Attribute.String;
     Paragraph: Attribute.Text;
+    BackgroundImage: Attribute.Media;
+    SecondaryTitle: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1041,19 +1004,9 @@ export interface ApiServiceService extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Icon: Attribute.Enumeration<
-      [
-        'WordPress',
-        'CartArrowDown',
-        'CloudDownload',
-        'Language',
-        'Plane',
-        'PieChart'
-      ]
-    > &
-      Attribute.Required;
     Name: Attribute.String & Attribute.Required;
     Text: Attribute.Text & Attribute.Required;
+    Image: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1101,6 +1054,52 @@ export interface ApiServiceAreaServiceArea extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::service-area.service-area',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSocialMediaPlatformSocialMediaPlatform
+  extends Schema.CollectionType {
+  collectionName: 'social_media_platforms';
+  info: {
+    singularName: 'social-media-platform';
+    pluralName: 'social-media-platforms';
+    displayName: 'SocialMediaPlatforms';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Type: Attribute.Enumeration<
+      [
+        'Discord',
+        'Facebook',
+        'Google',
+        'Instagram',
+        'LinkedIn',
+        'Slack',
+        'Twitter',
+        'YouTube'
+      ]
+    > &
+      Attribute.Required;
+    Url: Attribute.String & Attribute.Required;
+    Image: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::social-media-platform.social-media-platform',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::social-media-platform.social-media-platform',
       'oneToOne',
       'admin::user'
     > &
@@ -1264,7 +1263,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about.about': ApiAboutAbout;
-      'api::about-why.about-why': ApiAboutWhyAboutWhy;
       'api::contact.contact': ApiContactContact;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::header.header': ApiHeaderHeader;
@@ -1272,6 +1270,7 @@ declare module '@strapi/types' {
       'api::portfolio-area.portfolio-area': ApiPortfolioAreaPortfolioArea;
       'api::service.service': ApiServiceService;
       'api::service-area.service-area': ApiServiceAreaServiceArea;
+      'api::social-media-platform.social-media-platform': ApiSocialMediaPlatformSocialMediaPlatform;
       'api::team-area.team-area': ApiTeamAreaTeamArea;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;

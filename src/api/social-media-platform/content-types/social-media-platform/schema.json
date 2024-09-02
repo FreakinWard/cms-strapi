@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "social_media_platforms",
+  "info": {
+    "singularName": "social-media-platform",
+    "pluralName": "social-media-platforms",
+    "displayName": "SocialMediaPlatforms",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Discord",
+        "Facebook",
+        "Google",
+        "Instagram",
+        "LinkedIn",
+        "Slack",
+        "Twitter",
+        "YouTube"
+      ],
+      "required": true
+    },
+    "Url": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

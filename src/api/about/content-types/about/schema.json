@@ -15,23 +15,23 @@
     "Paragraph": {
       "type": "text"
     },
-    "whys": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::about-why.about-why"
-    },
-    "whys2": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::about-why.about-why"
-    },
     "Image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Title": {
+      "type": "string",
       "required": true
+    },
+    "SecondaryTitle": {
+      "type": "string"
+    },
+    "SecondaryParagraph": {
+      "type": "text"
     }
   }
 }
